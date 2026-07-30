@@ -1,14 +1,31 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import type { navbarData } from '~/types/types';
 
-export const headerData = {
+export const headerData: navbarData = {
   links: [
-    { text: 'Home', href: '/' },
-    { text: 'Services', href: getPermalink('/services') },
-    { text: 'Pricing', href: getPermalink('/pricing') },
-    { text: 'About', href: getPermalink('/about') },
-    { text: 'Contact', href: getPermalink('/contact') },
+    {
+      text: 'Home',
+      href: '/',
+    },
+    {
+      text: 'About',
+      href: '/about',
+    },
+    {
+      text: 'Services',
+      href: '/services',
+    },
+    {
+      text: 'Contact',
+      href: '/contact',
+    },
   ],
-  actions: [{ text: 'Get Started', href: '/contact' }],
+  actions: [
+    {
+      text: 'Get a Quote',
+      href: '/contact',
+      variant: 'primary' as const,
+    },
+  ],
 };
 
 export const footerData = {
@@ -17,39 +34,20 @@ export const footerData = {
       title: 'Quick Links',
       links: [
         { text: 'Home', href: '/' },
+        { text: 'About Us', href: '/about' },
         { text: 'Services', href: '/services' },
-        { text: 'Pricing', href: '/pricing' },
-        { text: 'About', href: '/about' },
         { text: 'Contact', href: '/contact' },
-      ],
-    },
-    {
-      title: 'Services',
-      links: [
-        { text: 'Service One', href: '/services' },
-        { text: 'Service Two', href: '/services' },
-        { text: 'Service Three', href: '/services' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Contact Us', href: '/contact' },
-        { text: 'Privacy Policy', href: '/privacy' },
-        { text: 'Terms of Service', href: '/terms' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: '103 Springbok Road, Bartlett AH, Boksburg', href: '#' },
+    { text: 'chris@trafalgarlogistics.co.za', href: 'mailto:chris@trafalgarlogistics.co.za' },
+    { text: 'ryan@trafalgarlogistics.co.za', href: 'mailto:ryan@trafalgarlogistics.co.za' },
+    { text: '(+27) 71 677 0088', href: 'tel:+27716770088' },
   ],
   socialLinks: [
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
+    { text: 'LinkedIn', href: '#', icon: 'tabler:brand-linkedin' as const },
   ],
-  footNote: `
-    All rights reserved.
-  `,
+  footNote: `&copy; ${new Date().getFullYear()} Trafalgar Logistics. All rights reserved.`,
 };

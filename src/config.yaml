@@ -1,22 +1,21 @@
 site:
-  name: Your Business
-  site: 'https://yourbusiness.co.za'
+  name: Trafalgar Logistics
+  site: 'https://trafalgarlogistics.co.za'
   base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: ''
 
-# Default SEO metadata
 metadata:
   title:
-    default: Your Business
-    template: '%s — Your Business'
-  description: "Professional services and solutions for your business needs."
+    default: Trafalgar Logistics
+    template: '%s — Trafalgar Logistics'
+  description: "Transport and logistics company based in South Africa, covering critical routes in Zimbabwe, Zambia, and the DRC. Specialists in high-value metals and minerals transport."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Your Business
+    site_name: Trafalgar Logistics
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -33,40 +32,35 @@ i18n:
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
-
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/%slug%'
       robots:
         index: true
-
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'blog'
       robots:
         index: true
-
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: 'category'
       robots:
         index: true
-
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: 'tag'
       robots:
         index: false
-
     isRelatedPostsEnabled: true
     relatedPostsCount: 4
 
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: null
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light:only'
