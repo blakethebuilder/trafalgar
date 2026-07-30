@@ -6,7 +6,6 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 
 import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
@@ -92,7 +91,6 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss()],
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
