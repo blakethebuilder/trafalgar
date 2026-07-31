@@ -2,13 +2,12 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Image from '~/components/common/Image.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import truck from '~/assets/images/DSC_8613-2.jpg';
+import truck2 from '~/assets/images/DSC_8623-2.jpg';
+import truck3 from '~/assets/images/DSC_8630.jpg';
 import highway from '~/assets/images/highway.jpg';
 
 const metadata = {
@@ -24,67 +23,75 @@ const ticker = [
   'Customs Clearance',
   'Trade Finance',
 ];
+
+const routes = [
+  { code: '01', country: 'Zimbabwe', corridor: 'Boksburg → Beitbridge → Harare', note: 'Core route since 2002', stat: '20+ yrs' },
+  { code: '02', country: 'Zambia', corridor: 'Boksburg → Beitbridge → Lusaka', note: 'Copper-belt metals corridor', stat: '7 days' },
+  { code: '03', country: 'DRC', corridor: 'Boksburg → Beitbridge → Kolwezi', note: 'High-value mineral exports', stat: '24/7' },
+];
+
+const specs = [
+  { code: 'SPEC-01', label: 'Trucks in Fleet', value: '50' },
+  { code: 'SPEC-02', label: 'Years in Operation', value: '20+' },
+  { code: 'SPEC-03', label: 'Countries Served', value: '3' },
+  { code: 'SPEC-04', label: 'Fleet Brands', value: '3' },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero — SupplyLink diagonal split -->
-  <section class="relative overflow-hidden bg-dark not-prose">
-    <div class="absolute inset-0" aria-hidden="true">
-      <Image
-        src={highway}
-        class="w-full h-full object-cover opacity-25"
-        widths={[800, 1200, 1600]}
-        sizes="100vw"
-        loading="eager"
-        fetchpriority="high"
-        format="webp"
-        width={1600}
-        height={900}
-        alt=""
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-[#253C43]/60"></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-12 items-center py-20 md:py-28">
-        <div>
-          <p class="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-5">Trafalgar Logistics</p>
-          <h1 class="text-5xl md:text-6xl font-heading leading-tight text-white uppercase tracking-tight">
-            Logistics <span class="text-primary">Excellence</span> in Motion
+  <!-- ============ HERO — diagonal split ============ -->
+  <section class="relative bg-dark overflow-hidden not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-12 gap-0 items-stretch py-10 md:py-16">
+        <!-- Left: copy -->
+        <div class="lg:col-span-7 flex flex-col justify-center py-10 lg:pr-10">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="inline-block w-8 h-[2px] bg-primary"></span>
+            <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">Est. 2002 · SA</span>
+          </div>
+          <h1 class="text-4xl md:text-6xl font-heading leading-[1.02] text-base-content uppercase tracking-tight">
+            High-Value Cargo,<br />
+            <span class="text-primary">Moved With Precision.</span>
           </h1>
-          <p class="text-xl text-slate-300 mt-6 max-w-xl">
-            Trusted transport and logistics partner serving critical routes across Zimbabwe, Zambia, and the DRC since 2002.
+          <p class="text-lg text-muted mt-6 max-w-xl leading-relaxed">
+            Trafalgar Logistics moves high-value metals and minerals across Zimbabwe, Zambia, and the DRC.
+            50 trucks. Satellite-tracked. Since 2002.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mt-10">
-            <a href="/contact" class="btn btn-primary btn-lg rounded-full px-8">Get a Quote</a>
-            <a href="/services" class="btn btn-outline btn-lg rounded-full px-8 border-slate-600 text-white hover:border-primary hover:text-primary">Our Services</a>
+            <a href="/contact" class="btn btn-primary btn-lg rounded-none px-8 font-semibold">Get a Quote</a>
+            <a href="/services" class="btn btn-outline btn-lg rounded-none px-8 border-base-300 text-base-content hover:border-primary hover:text-primary font-semibold">Our Services</a>
           </div>
         </div>
 
-        <div class="relative hidden lg:block">
-          <div class="absolute -inset-3 bg-primary/20 blur-2xl rounded-2xl" aria-hidden="true"></div>
-          <Image
-            src={truck}
-            class="relative rounded-xl border border-slate-700 w-full object-cover"
-            widths={[600, 900, 1200]}
-            sizes="(max-width: 1023px) 0px, 600px"
-            loading="eager"
-            fetchpriority="high"
-            format="webp"
-            width={1024}
-            height={681}
-            alt="Trafalgar Logistics truck fleet"
-          />
-          <div class="absolute -bottom-5 -left-5 bg-[#253C43] border border-slate-600 rounded-lg px-5 py-4 shadow-2xl">
-            <div class="text-3xl font-heading text-primary">50</div>
-            <div class="text-xs uppercase tracking-widest text-slate-300">Trucks in Fleet</div>
+        <!-- Right: truck + diagonal split -->
+        <div class="lg:col-span-5 relative min-h-[320px] md:min-h-[460px]">
+          <div class="absolute inset-0 lg:left-8" style="clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);">
+            <Image
+              src={truck}
+              class="w-full h-full object-cover"
+              widths={[600, 900, 1200]}
+              sizes="(max-width: 1023px) 100vw, 40vw"
+              loading="eager"
+              fetchpriority="high"
+              format="webp"
+              width={1024}
+              height={681}
+              alt="Trafalgar Logistics truck fleet"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121212]/90 via-transparent to-transparent"></div>
+          </div>
+          <!-- Floating spec chip -->
+          <div class="absolute bottom-6 left-0 lg:left-4 bg-base-200/95 border border-base-300 backdrop-blur px-5 py-4 z-10">
+            <div class="font-mono text-[10px] text-primary tracking-[0.2em]">[SPEC-01]</div>
+            <div class="text-3xl font-heading text-base-content mt-1">50</div>
+            <div class="text-xs uppercase tracking-widest text-muted">Trucks in Fleet</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Brand ticker strip -->
-    <div class="relative bg-[#40d24d] border-y border-black/20">
+    <!-- Brand ticker -->
+    <div class="relative bg-primary border-y border-black/20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 overflow-hidden whitespace-nowrap">
         <div class="inline-flex gap-8 text-black/90 text-sm font-bold uppercase tracking-wider animate-[marquee_40s_linear_infinite]">
           {[...Array(2)].map(() =>
@@ -106,14 +113,97 @@ const ticker = [
     }
   </style>
 
-  <Note
-    title="Why Trafalgar Logistics?"
-    description="Specialists in high-value metals and minerals transport. 50 trucks strong. Serving Africa with safety, reliability, and innovation since 2002."
-  />
+  <!-- ============ ROUTE CORRIDORS ============ -->
+  <section class="bg-page py-16 md:py-24 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block w-8 h-[2px] bg-primary"></span>
+            <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">[02] Route Corridors</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-heading text-base-content uppercase tracking-tight">
+            Three Countries.<br />One Standard.
+          </h2>
+        </div>
+        <p class="text-muted max-w-md md:text-right">
+          Every corridor runs the same playbook: satellite-tracked, bond-managed, customs-cleared cargo.
+        </p>
+      </div>
 
+      <div class="grid md:grid-cols-3 gap-4">
+        {
+          routes.map((r) => (
+            <div class="card bg-base-200 border border-base-300 rounded-none hover:border-primary/50 transition-colors">
+              <div class="card-body p-6 md:p-8">
+                <div class="flex items-start justify-between mb-6">
+                  <span class="font-mono text-[10px] text-primary tracking-[0.2em]">[R-{r.code}]</span>
+                  <span class="font-mono text-[10px] text-muted tracking-[0.2em]">{r.stat}</span>
+                </div>
+                <div class="text-2xl font-heading text-base-content uppercase tracking-tight mb-1">{r.country}</div>
+                <div class="font-mono text-xs text-primary mb-4">{r.corridor}</div>
+                <p class="text-sm text-muted">{r.note}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLEET SPEC SHEET ============ -->
+  <section class="bg-base-200 border-y border-base-300 py-16 md:py-24 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block w-8 h-[2px] bg-primary"></span>
+            <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">[03] The Fleet</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-heading text-base-content uppercase tracking-tight mb-6">
+            Built For The Route
+          </h2>
+          <p class="text-muted mb-8 leading-relaxed">
+            Iveco, Scania and FAW prime movers pulling flat deck super link trailers — twist locks for
+            containers, steel or wooden uprights for pipes and steel structures. Fully registered for
+            dangerous goods.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3">
+            {
+              specs.map((s) => (
+                <div class="bg-page border border-base-300 px-5 py-4">
+                  <div class="font-mono text-[10px] text-primary tracking-[0.2em]">{s.code}</div>
+                  <div class="text-2xl md:text-3xl font-heading text-base-content mt-1">{s.value}</div>
+                  <div class="text-xs uppercase tracking-widest text-muted mt-1">{s.label}</div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 relative">
+          <div class="absolute inset-0 bg-primary/10 translate-x-4 translate-y-4" aria-hidden="true"></div>
+          <Image
+            src={truck2}
+            class="relative border border-base-300 w-full h-[260px] md:h-[380px] object-cover"
+            widths={[600, 900]}
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            loading="lazy"
+            format="webp"
+            width={1024}
+            height={681}
+            alt="Trafalgar Logistics flat deck super link trailer"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
   <Features
     id="services"
-    tagline="Services"
+    tagline="[04] Services"
     title="What We Deliver"
     subtitle="Comprehensive logistics solutions tailored for the African continent."
     columns={3}
@@ -125,58 +215,51 @@ const ticker = [
       },
       {
         title: 'Break Bulk',
-        description: 'Specialised handling of oversized, heavy-lift, and non-containerised cargo with flat deck super link trailers.',
+        description: 'Oversized, heavy-lift and non-containerised cargo on flat deck super link trailers.',
         icon: 'tabler:layout-grid',
       },
       {
         title: '24-Hour Satellite Tracking',
-        description: 'Real-time GPS monitoring of every shipment. Complete visibility from departure to delivery.',
+        description: 'Real-time GPS on every shipment. Complete visibility from departure to delivery.',
         icon: 'tabler:satellite',
       },
       {
         title: 'Transit Bonds',
-        description: 'Seamless cross-border transit bond management for hassle-free movement across African borders.',
+        description: 'Seamless cross-border bond management. Cargo moves without border delays.',
         icon: 'tabler:file-check',
       },
       {
         title: 'Insurance & Customs',
-        description: 'Comprehensive cargo insurance and customs clearance services. Fully compliant for dangerous goods transport.',
+        description: 'Cargo insurance and customs clearance. Fully compliant for dangerous goods.',
         icon: 'tabler:shield-check',
       },
       {
         title: 'Trade Finance',
-        description: 'Flexible trade finance solutions to support your supply chain and keep your business moving.',
+        description: 'Flexible financing to keep your supply chain moving.',
         icon: 'tabler:coins',
       },
     ]}
   />
 
-  <Stats
-    tagline="Our Fleet"
-    title="Moving Africa Forward"
-    stats={[
-      { title: 'Trucks in Fleet', amount: '50' },
-      { title: 'Years in Operation', amount: '20+' },
-      { title: 'Countries Served', amount: '3' },
-      { title: 'Brands', amount: '3' },
-    ]}
-  />
-
-  <Content
-    tagline="About Us"
-    title="A Legacy of Logistics Excellence"
-    isReversed={false}
-    callToAction={{
-      text: 'Read Our Story',
-      href: '/about',
-      variant: 'primary' as const,
-    }}
-  >
-    <Fragment slot="content">
-      <p>Established in 2002, Trafalgar Logistics swiftly emerged as a trusted and dependable leader in the transportation industry, serving critical routes in Zimbabwe and Zambia.</p>
-      <p>We specialise in the transportation of high-value metals and minerals, implementing stringent security measures and employing seasoned professionals who are experts in their field.</p>
-    </Fragment>
-  </Content>
+  <!-- ============ PROOF STRIP ============ -->
+  <section class="bg-page py-14 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="border-l-2 border-primary pl-5">
+          <div class="text-3xl font-heading text-base-content">2002</div>
+          <div class="text-sm text-muted mt-1">Established. Two decades of cross-border freight.</div>
+        </div>
+        <div class="border-l-2 border-primary pl-5">
+          <div class="text-3xl font-heading text-base-content">24/7</div>
+          <div class="text-sm text-muted mt-1">Satellite tracking and proactive alerts on every load.</div>
+        </div>
+        <div class="border-l-2 border-primary pl-5">
+          <div class="text-3xl font-heading text-base-content">DG</div>
+          <div class="text-sm text-muted mt-1">Dangerous goods registered. Sensitive cargo, handled right.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <CallToAction
     title="Ready to Move Your Cargo?"
@@ -188,7 +271,7 @@ const ticker = [
     }}
     callToAction2={{
       text: 'Call Us: (+27) 71 677 0088',
-      href: 'tel:+27716770088',
+      href: 'tel:+277****0088',
     }}
   />
 </Layout>
