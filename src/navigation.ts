@@ -39,12 +39,21 @@ export const footerData = {
         { text: 'Contact', href: '/contact' },
       ],
     },
+    {
+      title: 'Services',
+      links: [
+        { text: 'Containerised Freight', href: '/services' },
+        { text: 'Break Bulk', href: '/services' },
+        { text: 'Transit Bonds', href: '/services' },
+        { text: 'Trade Finance', href: '/services' },
+      ],
+    },
   ],
   secondaryLinks: [
-    { text: '103 Springbok Road, Bartlett AH, Boksburg', href: '#' },
-    { text: 'chris@trafalgarlogistics.co.za', href: 'mailto:chris@trafalgarlogistics.co.za' },
-    { text: 'ryan@trafalgarlogistics.co.za', href: 'mailto:ryan@trafalgarlogistics.co.za' },
-    { text: '(+27) 71 677 0088', href: 'tel:+27716770088' },
+    { text: '103 Springbok Road, Bartlett AH, Boksburg', href: '#', icon: 'tabler:map-pin' },
+    { text: 'chris@trafalgarlogistics.co.za', href: 'mailto:chris@trafalgarlogistics.co.za', icon: 'tabler:mail' },
+    { text: 'ryan@trafalgarlogistics.co.za', href: 'mailto:ryan@trafalgarlogistics.co.za', icon: 'tabler:mail' },
+    { text: '(+27) 71 677 0088', href: 'tel:+277****0088', icon: 'tabler:phone' },
   ],
   socialLinks: [
     { text: 'LinkedIn', href: '#', icon: 'tabler:brand-linkedin' as const },
