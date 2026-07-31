@@ -1,91 +1,159 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
+
+import Image from '~/components/common/Image.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import truck from '~/assets/images/DSC_8613-2.jpg';
 
 const metadata = {
   title: 'Services',
 };
+
+const services = [
+  {
+    code: 'SVC-01',
+    title: 'Containerised Freight',
+    description: 'Secure, tracked container transport across Southern Africa and the DRC. Flat deck super link trailers with twist locks ensure your containers arrive safely, every time.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    code: 'SVC-02',
+    title: 'Break Bulk',
+    description: 'Oversized, heavy-lift and non-containerised cargo. Steel and wooden upright configurations accommodate lengthy pipes, steel structures, and irregular loads.',
+    icon: 'M4 4h16v16H4z M4 9h16 M4 15h16',
+  },
+  {
+    code: 'SVC-03',
+    title: '24-Hour Satellite Tracking',
+    description: 'Real-time GPS monitoring on every shipment. Complete visibility from departure to delivery, with proactive alerts and precise ETAs.',
+    icon: 'M12 2a10 10 0 100 20 10 10 0 000-20z M12 6v6l4 2',
+  },
+  {
+    code: 'SVC-04',
+    title: 'Transit Bonds',
+    description: 'Seamless cross-border transit bond management. We handle the paperwork so your cargo moves freely across Zimbabwe, Zambia, and DRC borders without delays.',
+    icon: 'M9 12l2 2 4-4 M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z',
+  },
+  {
+    code: 'SVC-05',
+    title: 'Customs Clearance',
+    description: 'Expert customs clearance navigating complex African trade regulations. Our experience minimises border delays and ensures full compliance.',
+    icon: 'M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z M9 12l2 2 4-4',
+  },
+  {
+    code: 'SVC-06',
+    title: 'Insurance',
+    description: 'Comprehensive cargo insurance for peace of mind. Protect your high-value metals, minerals, and goods throughout their journey.',
+    icon: 'M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z',
+  },
+  {
+    code: 'SVC-07',
+    title: 'Trade Finance',
+    description: 'Flexible financing solutions to support your supply chain. Keep your business moving with trade finance tailored to the logistics industry.',
+    icon: 'M3 8h18v12H3z M3 12h18 M7 16h4',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    tagline="Our Services"
-  >
-    <Fragment slot="title">
-      Comprehensive <span class="text-primary">Logistics Solutions</span>
-    </Fragment>
+  <!-- ============ HERO ============ -->
+  <section class="relative bg-dark overflow-hidden not-prose">
+    <div class="absolute inset-0" aria-hidden="true">
+      <Image
+        src={truck}
+        class="w-full h-full object-cover opacity-20"
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        format="webp"
+        width={1024}
+        height={681}
+        alt=""
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/80 to-transparent"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-block w-8 h-[2px] bg-primary"></span>
+        <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">Services</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-heading leading-[1.02] text-base-content uppercase tracking-tight max-w-3xl">
+        Every Link In The<br /><span class="text-primary">Supply Chain.</span>
+      </h1>
+      <p class="text-lg text-muted mt-6 max-w-xl leading-relaxed">
+        From cross-border freight to trade finance — seven services, one accountable partner.
+      </p>
+    </div>
+  </section>
 
-    <Fragment slot="subtitle">
-      End-to-end services covering every link in the African supply chain.
-    </Fragment>
-  </Hero>
+  <!-- ============ SERVICE CARDS ============ -->
+  <section class="bg-page py-16 md:py-24 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="inline-block w-8 h-[2px] bg-primary"></span>
+        <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">[02] Core Services</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-heading text-base-content uppercase tracking-tight mb-10">
+        What We Do
+      </h2>
 
-  <Features
-    tagline="Core Services"
-    title="What We Do"
-    subtitle="From cross-border freight to trade finance — we handle it all."
-    columns={3}
-    items={[
-      {
-        title: 'Containerised Freight',
-        description:
-          'Secure, tracked container transport across Southern Africa and the DRC. Our flat deck super link trailers with twist locks ensure your containers arrive safely, every time.',
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Break Bulk',
-        description:
-          'Specialised handling of oversized, heavy-lift, and non-containerised cargo. Our steel and wooden upright configurations accommodate lengthy pipes, steel structures, and irregular loads.',
-        icon: 'tabler:layout-grid',
-      },
-      {
-        title: '24-Hour Satellite Tracking',
-        description:
-          'Real-time GPS monitoring on every shipment. Complete visibility from departure to delivery, with proactive alerts and precise ETAs for your peace of mind.',
-        icon: 'tabler:satellite',
-      },
-      {
-        title: 'Transit Bonds',
-        description:
-          'Seamless cross-border transit bond management. We handle the paperwork so your cargo moves freely across Zimbabwe, Zambia, and DRC borders without delays.',
-        icon: 'tabler:file-check',
-      },
-      {
-        title: 'Customs Clearance',
-        description:
-          'Expert customs clearance services navigating complex African trade regulations. Our experience minimises border delays and ensures full compliance.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Insurance',
-        description:
-          'Comprehensive cargo insurance cover for peace of mind. Protect your high-value metals, minerals, and goods throughout their journey.',
-        icon: 'tabler:shield',
-      },
-      {
-        title: 'Trade Finance',
-        description:
-          'Flexible financing solutions to support your supply chain. Keep your business moving with trade finance options tailored to the logistics industry.',
-        icon: 'tabler:coins',
-      },
-    ]}
-  />
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          services.map((s) => (
+            <div class="card bg-base-200 border border-base-300 rounded-none hover:border-primary/50 transition-colors">
+              <div class="card-body p-6 md:p-8">
+                <div class="flex items-start justify-between mb-5">
+                  <span class="w-10 h-10 flex items-center justify-center bg-primary/15 text-primary">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d={s.icon}/></svg>
+                  </span>
+                  <span class="font-mono text-[10px] text-muted tracking-[0.2em]">{s.code}</span>
+                </div>
+                <div class="text-xl font-heading text-base-content uppercase tracking-tight mb-3">{s.title}</div>
+                <p class="text-sm text-muted leading-relaxed">{s.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-  <Features
-    tagline="Certifications"
-    title="Dangerous Goods Compliant"
-    subtitle="We are fully registered and compliant for the transportation of dangerous goods, ensuring even the most sensitive cargo is handled with the utmost care and adherence to safety regulations."
-    columns={1}
-    items={[
-      {
-        title: 'Dangerous Goods Transport',
-        description: 'Fully registered and compliant. Our team is trained in handling hazardous materials according to ADR and local regulations.',
-        icon: 'tabler:alert-triangle',
-      },
-    ]}
-  />
+  <!-- ============ DANGEROUS GOODS ============ -->
+  <section class="bg-base-200 border-y border-base-300 py-16 md:py-20 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-block w-8 h-[2px] bg-primary"></span>
+            <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">[03] Compliance</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-heading text-base-content uppercase tracking-tight mb-6">
+            Dangerous Goods, Handled Right
+          </h2>
+          <p class="text-muted leading-relaxed mb-8">
+            Fully registered and compliant for the transportation of dangerous goods. Our team is
+            trained in handling hazardous materials according to ADR and local regulations — even the
+            most sensitive cargo gets the utmost care.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="font-mono text-[10px] tracking-[0.2em] text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 uppercase">ADR Trained</span>
+            <span class="font-mono text-[10px] tracking-[0.2em] text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 uppercase">DG Registered</span>
+            <span class="font-mono text-[10px] tracking-[0.2em] text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 uppercase">Fully Insured</span>
+          </div>
+        </div>
+        <div class="bg-page border border-base-300 p-8">
+          <div class="font-mono text-[10px] text-primary tracking-[0.2em] mb-4">[CERT-01]</div>
+          <div class="text-2xl font-heading text-base-content uppercase tracking-tight mb-2">Safety First, Always</div>
+          <p class="text-sm text-muted">
+            Stringent security measures. Seasoned professionals. A safety record built on two decades
+            of moving high-value metals and minerals across three borders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <CallToAction
     title="Need a Custom Logistics Solution?"
@@ -97,7 +165,7 @@ const metadata = {
     }}
     callToAction2={{
       text: 'Call: (+27) 71 677 0088',
-      href: 'tel:+27716770088',
+      href: 'tel:+277****0088',
     }}
   />
 </Layout>

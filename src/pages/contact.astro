@@ -1,21 +1,107 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+
+import Image from '~/components/common/Image.astro';
+
+import truck3 from '~/assets/images/DSC_8630.jpg';
 
 const metadata = {
   title: 'Contact',
 };
+
+const contactCards = [
+  {
+    code: 'LOC-01',
+    title: 'Depot',
+    lines: ['103 Springbok Road', 'Bartlett AH, Boksburg'],
+    icon: 'M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z M12 12a2 2 0 100-4 2 2 0 000 4z',
+  },
+  {
+    code: 'CON-01',
+    title: 'Operations',
+    lines: ['Chris Groenewald — Ops Manager', '066 599 3572 · chris@trafalgarlogistics.co.za'],
+    icon: 'M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5 M12 11a4 4 0 100-8 4 4 0 000 8z',
+  },
+  {
+    code: 'CON-02',
+    title: 'General',
+    lines: ['Ryan Rossiter — General Manager', '071 677 0088 · ryan@trafalgarlogistics.co.za'],
+    icon: 'M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5 M12 11a4 4 0 100-8 4 4 0 000 8z',
+  },
+  {
+    code: 'HRS-01',
+    title: 'Hours',
+    lines: ['Mon – Fri: 07:00 – 17:00', 'Operations run 24/7 on active loads'],
+    icon: 'M12 2a10 10 0 100 20 10 10 0 000-20z M12 6v6l4 2',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline="Contact" title="Get in Touch" />
+  <!-- ============ HERO ============ -->
+  <section class="relative bg-dark overflow-hidden not-prose">
+    <div class="absolute inset-0" aria-hidden="true">
+      <Image
+        src={truck3}
+        class="w-full h-full object-cover opacity-20"
+        widths={[800, 1200, 1600]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        format="webp"
+        width={1024}
+        height={681}
+        alt=""
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/80 to-transparent"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-28">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-block w-8 h-[2px] bg-primary"></span>
+        <span class="text-primary font-mono text-xs tracking-[0.25em] uppercase">Contact</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-heading leading-[1.02] text-base-content uppercase tracking-tight max-w-3xl">
+        Get Your Cargo<br /><span class="text-primary">Moving.</span>
+      </h1>
+      <p class="text-lg text-muted mt-6 max-w-xl leading-relaxed">
+        Tell us about your load. We'll come back within 24 hours with a competitive quote.
+      </p>
+    </div>
+  </section>
 
+  <!-- ============ CONTACT INFO CARDS ============ -->
+  <section class="bg-page py-16 md:py-20 not-prose">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+          contactCards.map((c) => (
+            <div class="bg-base-200 border border-base-300 px-6 py-6">
+              <div class="flex items-start justify-between mb-4">
+                <span class="w-10 h-10 flex items-center justify-center bg-primary/15 text-primary">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d={c.icon}/></svg>
+                </span>
+                <span class="font-mono text-[10px] text-muted tracking-[0.2em]">{c.code}</span>
+              </div>
+              <div class="text-lg font-heading text-base-content uppercase tracking-tight mb-2">{c.title}</div>
+              {
+                c.lines.map((l) => (
+                  <div class="text-sm text-muted leading-relaxed">{l}</div>
+                ))
+              }
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM ============ -->
   <ContactUs
     id="form"
-    title="Request a Quote"
-    subtitle="Tell us about your cargo and we'll get back to you within 24 hours with a competitive quote."
+    tagline="[02] Request a Quote"
+    title="Tell Us About Your Load"
+    subtitle="Name, cargo, route — we'll take it from there."
     inputs={[
       {
         type: 'text',
@@ -46,38 +132,5 @@ const metadata = {
         'By submitting this form, you agree to be contacted regarding your logistics requirements.',
     }}
     description="Our team typically responds within 24 business hours."
-  />
-
-  <Features2
-    title="Contact Information"
-    tagline="Reach Us"
-    columns={2}
-    items={[
-      {
-        title: 'Address',
-        description: '103 Springbok Road, Bartlett AH, Boksburg',
-        icon: 'tabler:map-pin',
-      },
-      {
-        title: 'Operations Manager',
-        description: 'Chris Groenewald — 066 599 3572 · chris@trafalgarlogistics.co.za',
-        icon: 'tabler:user',
-      },
-      {
-        title: 'General Manager',
-        description: 'Ryan Rossiter — 071 677 0088 · ryan@trafalgarlogistics.co.za',
-        icon: 'tabler:user',
-      },
-      {
-        title: 'Phone',
-        description: '(+27) 71 677 0088 · 066 599 3572',
-        icon: 'tabler:phone',
-      },
-      {
-        title: 'Email',
-        description: 'chris@trafalgarlogistics.co.za · ryan@trafalgarlogistics.co.za',
-        icon: 'tabler:mail',
-      },
-    ]}
   />
 </Layout>
