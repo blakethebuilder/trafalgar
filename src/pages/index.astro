@@ -135,12 +135,12 @@ const specs = [
         {
           routes.map((r) => (
             <div class="card bg-base-200 border border-base-300 rounded-none hover:border-primary/50 transition-colors">
-              <div class="card-body p-6 md:p-8">
+              <div class="card-body p-6">
                 <div class="flex items-start justify-between mb-6">
                   <span class="font-mono text-[10px] text-primary tracking-[0.2em]">[R-{r.code}]</span>
                   <span class="font-mono text-[10px] text-muted tracking-[0.2em]">{r.stat}</span>
                 </div>
-                <div class="text-2xl font-heading text-base-content uppercase tracking-tight mb-1">{r.country}</div>
+                <div class="text-xl font-heading text-base-content uppercase tracking-tight mb-1">{r.country}</div>
                 <div class="font-mono text-xs text-primary mb-4">{r.corridor}</div>
                 <p class="text-sm text-muted">{r.note}</p>
               </div>
@@ -172,7 +172,7 @@ const specs = [
           <div class="grid grid-cols-2 gap-3">
             {
               specs.map((s) => (
-                <div class="bg-page border border-base-300 px-5 py-4">
+                <div class="bg-page border border-base-300 px-5 py-5 h-full">
                   <div class="font-mono text-[10px] text-primary tracking-[0.2em]">{s.code}</div>
                   <div class="text-2xl md:text-3xl font-heading text-base-content mt-1">{s.value}</div>
                   <div class="text-xs uppercase tracking-widest text-muted mt-1">{s.label}</div>
@@ -240,26 +240,6 @@ const specs = [
       },
     ]}
   />
-
-  <!-- ============ PROOF STRIP ============ -->
-  <section class="bg-page py-14 not-prose">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="border-l-2 border-primary pl-5">
-          <div class="text-3xl font-heading text-base-content">2002</div>
-          <div class="text-sm text-muted mt-1">Established. Two decades of cross-border freight.</div>
-        </div>
-        <div class="border-l-2 border-primary pl-5">
-          <div class="text-3xl font-heading text-base-content">24/7</div>
-          <div class="text-sm text-muted mt-1">Satellite tracking and proactive alerts on every load.</div>
-        </div>
-        <div class="border-l-2 border-primary pl-5">
-          <div class="text-3xl font-heading text-base-content">DG</div>
-          <div class="text-sm text-muted mt-1">Dangerous goods registered. Sensitive cargo, handled right.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <CallToAction
     title="Ready to Move Your Cargo?"

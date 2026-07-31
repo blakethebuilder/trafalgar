@@ -36,25 +36,25 @@ const columnsClass =
     items.length > 0 && (
       <div class:list={['grid mx-auto gap-6', columnsClass]}>
         {items.map(({ title: itemTitle, description, icon, callToAction }) => (
-          <div class="card bg-base-200 border border-base-300 shadow-sm intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-            <div class="card-body p-6">
+          <div class="card bg-base-200 border border-base-300 rounded-none h-full intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div class="card-body p-6 flex flex-col">
               {(icon || defaultIcon) && (
-                <div class="flex justify-start">
+                <div class="flex justify-start mb-4">
                   <Icon
                     name={icon || defaultIcon}
-                    class="w-10 h-10 p-2 text-white bg-primary rounded-lg"
+                    class="w-10 h-10 p-2 text-white bg-primary rounded-none"
                   />
                 </div>
               )}
-              <div class="mt-1">
-                {itemTitle && <h3 class="text-xl font-bold text-base-content">{itemTitle}</h3>}
-                {description && <p class:list={[{ 'mt-2': itemTitle }, 'text-muted']} set:html={description} />}
-                {callToAction && (
-                  <div class:list={[{ 'mt-3': itemTitle || description }]}>
-                    <Button variant="link" {...callToAction} />
-                  </div>
-                )}
+              <div class="flex-1">
+                {itemTitle && <h3 class="text-lg font-heading text-base-content uppercase tracking-tight">{itemTitle}</h3>}
+                {description && <p class:list={[{ 'mt-2': itemTitle }, 'text-sm text-muted leading-relaxed']} set:html={description} />}
               </div>
+              {callToAction && (
+                <div class="mt-4">
+                  <Button variant="link" {...callToAction} />
+                </div>
+              )}
             </div>
           </div>
         ))}
